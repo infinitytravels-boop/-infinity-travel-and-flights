@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Payment Result | Infinity Travel and Flights</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="section">
+  <div class="section-heading">
+    <p class="eyebrow">PAYMENT STATUS</p>
+    <h2 id="title">Checking your payment…</h2>
+    <p id="message">Please wait while we verify the transaction with the payment provider.</p>
+  </div>
+  <div class="hero-card" style="max-width:620px;margin:auto;text-align:center">
+    <p id="details">Do not close this page yet.</p>
+    <a class="btn primary" href="index.html#contact">Contact Infinity Travel and Flights</a>
+  </div>
+</main>
+<script>
+(async()=>{
+  const p=new URLSearchParams(location.search);
+  const id=p.get("transaction_id");
+  const tx=p.get("tx_ref");
+  const title=document.getElementById("title"), message=document.getElementById("message"), details=document.getElementById("details");
+  if(!id){title.textContent="Payment status unavailable";message.textContent="We did not receive a transaction ID. Please contact us with your booking reference.";details.textContent="Do not make another payment until we confirm the status." ;return;}
+  try{
+    const r=await fetch("/api/verify-payment?transaction_id="+encodeURIComponent(id)+"&tx_ref="+encodeURIComponent(tx||""));
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||"Verification failed");
+    if(d.success){
+      title.textContent="Payment verified";
+      message.textContent="Your payment has been verified. Infinity Travel and Flights can now proceed with the ticketing process.";
+      details.textContent="Transaction reference: "+(d.tx_ref||tx||"confirmed");
+    }else{
+      title.textContent="Payment not confirmed";
+      message.textContent="The payment has not been confirmed as successful. Please contact us before attempting another payment.";
+      details.textContent=d.status ? "Current status: "+d.status : "Please contact us with your booking reference.";
+    }
+  }catch(e){
+    title.textContent="We are checking your payment";
+    message.textContent="We could not complete the automatic check. Please contact us before making another payment.";
+    details.textContent=e.message||"Verification temporarily unavailable.";
+  }
+})();
+</script>
+</body>
+</html>
