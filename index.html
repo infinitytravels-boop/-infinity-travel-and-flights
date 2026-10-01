@@ -1,120 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infinity Travel and Flights | Flight Booking Assistance</title>
-<meta name="description" content="Submit a flight request to Infinity Travel and Flights. We find suitable options, confirm your itinerary and price, then provide secure online payment.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Request flights with Infinity Travel and Flights.">
+<title>Infinity Travel and Flights | Flight Requests</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#home" aria-label="Infinity Travel and Flights home"><span class="logo">✈</span><span>Infinity Travel <b>&amp; Flights</b></span></a>
-  <nav aria-label="Main navigation"><a href="#home">Home</a><a href="#request">Request</a><a href="#how">How It Works</a><a href="#payment">Payment</a><a href="#contact">Contact</a></nav>
-  <a class="nav-btn" href="#request">Request a Flight</a>
-</header>
-
+<header class="nav"><a class="brand" href="#">✈ Infinity <span>Travel & Flights</span></a><a class="nav-link" href="#request">Request a flight</a></header>
 <main>
-<section id="home" class="hero">
-  <div class="hero-copy">
-    <p class="eyebrow">TRAVEL MADE SIMPLE</p>
-    <h1>Your journey starts with <span>Infinity.</span></h1>
-    <p class="lead">Tell us where you want to go, when you want to travel, and what you need. Our flight agent will find suitable options and send you a personalized itinerary.</p>
-    <div class="hero-actions"><a class="btn primary" href="#request">Request a Flight</a><a class="btn secondary" href="#how">How it works</a></div>
-    <div class="trust-row"><span>✓ Personalized service</span><span>✓ USD • EUR • GBP</span><span>✓ Secure online checkout</span></div>
-  </div>
-  <div class="hero-card">
-    <div class="card-top"><span>✈</span><strong>Flight Request</strong><span class="status">● Online</span></div>
-    <div class="route"><div><small>FROM</small><strong>Any airport</strong></div><div class="arrow">→</div><div><small>TO</small><strong>Any destination</strong></div></div>
-    <div class="mini-grid"><div><small>DEPART</small><strong>Your date</strong></div><div><small>RETURN</small><strong>Optional</strong></div></div>
-    <a class="btn primary full" href="#request">Start your request</a>
-  </div>
+<section class="hero">
+<div class="hero-copy"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h1>Where would you like to go?</h1><p class="lead">Tell us about your trip. We'll find flight options and email you with the details and ways to pay.</p><a class="primary" href="#request">Request a flight</a><p class="note">No online payment required to submit a request.</p></div>
+<div class="hero-art" aria-hidden="true">✈</div>
 </section>
-
-<section id="request" class="section">
-  <div class="section-heading"><p class="eyebrow">STEP 1</p><h2>Request your flight</h2><p>Submit your travel details. Your request is sent to our business email for review. We will contact you with available options and a price.</p></div>
-  <form id="flightForm" class="form-card" action="https://formsubmit.co/ajax/jamesmitchell75b@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="New Flight Request — Infinity Travel and Flights">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="true">
-    <div class="form-section"><h3>Trip details</h3>
-      <div class="grid two">
-        <label>Trip type<select name="Trip type" required><option>Round trip</option><option>One way</option></select></label>
-        <label>Cabin class<select name="Cabin class"><option>Economy</option><option>Premium Economy</option><option>Business</option><option>First</option></select></label>
-        <label>Departure city / airport<input name="Departure" placeholder="e.g. Cleveland (CLE)" required></label>
-        <label>Destination city / airport<input name="Destination" placeholder="e.g. Kraków (KRK)" required></label>
-        <label>Departure date<input type="date" name="Departure date" required></label>
-        <label>Return date<input type="date" name="Return date"></label>
-        <label>Passengers<input type="number" name="Passengers" min="1" max="20" value="1" required></label>
-        <label>Preferred currency<select name="Currency"><option>USD</option><option>EUR</option><option>GBP</option></select></label>
-      </div>
-    </div>
-    <div class="form-section"><h3>Passenger &amp; contact information</h3>
-      <div class="grid two">
-        <label>Full name<input name="Full name" placeholder="Full name as on passport" required></label>
-        <label>Phone / WhatsApp<input name="Phone / WhatsApp" placeholder="+1..." required></label>
-        <label>Email address<input type="email" name="Customer email" placeholder="you@example.com" required></label>
-        <label>Preferred contact<select name="Preferred contact"><option>WhatsApp</option><option>Email</option><option>Phone call</option></select></label>
-      </div>
-      <label>Additional requests<textarea name="Additional requests" rows="4" placeholder="Baggage needs, preferred departure time, flexibility, special assistance, etc."></textarea></label>
-    </div>
-    <div class="form-section">
-      <label class="check"><input type="checkbox" name="Request acknowledgement" value="Yes" required> I understand that submitting a request does not purchase or ticket a flight. A final itinerary, availability and price must be confirmed before payment.</label>
-      <button class="btn primary full" type="submit">Submit Flight Request</button>
-      <p id="formMessage" class="form-message" aria-live="polite"></p>
-    </div>
-  </form>
-</section>
-
-<section id="how" class="section light"><div class="section-heading"><p class="eyebrow">HOW IT WORKS</p><h2>Simple from request to ticket</h2></div>
-  <div class="steps">
-    <div><span>01</span><h3>Send your request</h3><p>Tell us your route, dates, passengers and preferences.</p></div>
-    <div><span>02</span><h3>We find your options</h3><p>Our agent reviews options and prepares an itinerary and total price.</p></div>
-    <div><span>03</span><h3>Review &amp; pay</h3><p>After you approve the itinerary, you receive a secure payment link.</p></div>
-    <div><span>04</span><h3>Receive your ticket</h3><p>After payment is verified and the booking is ticketed, your documents are sent to you.</p></div>
-  </div>
-</section>
-
-<section id="payment" class="section payment-section">
-  <div class="section-heading"><p class="eyebrow">STEP 3</p><h2>Pay for your confirmed flight</h2><p>Use this area only after Infinity Travel and Flights has sent you a confirmed itinerary, final price and booking reference.</p></div>
-  <div class="payment-card">
-    <div class="payment-copy">
-      <h3>Secure card checkout</h3>
-      <p>Your card details are entered on Flutterwave's secure checkout. Infinity Travel and Flights does not store your card number or CVV.</p>
-      <ul><li>USD, EUR and GBP</li><li>International debit and credit cards where enabled on your merchant account</li><li>Server-side transaction verification before ticketing</li></ul>
-      <p class="payment-warning"><strong>Important:</strong> Never pay from an unsolicited link. Confirm the booking reference and final amount with Infinity Travel and Flights first.</p>
-    </div>
-    <form id="paymentForm" class="payment-form">
-      <label>Booking reference<input id="bookingRef" required placeholder="e.g. ITF-AB12CD"></label>
-      <div class="grid two">
-        <label>Amount<input id="paymentAmount" type="number" min="1" step="0.01" required placeholder="0.00"></label>
-        <label>Currency<select id="paymentCurrency"><option>USD</option><option>EUR</option><option>GBP</option></select></label>
-      </div>
-      <label>Full name<input id="paymentName" required placeholder="Name on booking"></label>
-      <label>Email<input id="paymentEmail" type="email" required placeholder="you@example.com"></label>
-      <button class="btn primary full" type="submit">Continue to secure payment</button>
-      <p id="paymentMessage" class="form-message" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-
-<section class="payment-strip"><div><p class="eyebrow">SECURE PAYMENTS</p><h2>Pay in USD, EUR or GBP.</h2></div><div class="payment-note">Payment is hosted by Flutterwave. Card information is handled by the payment provider, not stored by this website.</div></section>
-
-<section id="policies" class="section light">
-  <div class="section-heading"><p class="eyebrow">BEFORE YOU PAY</p><h2>Booking &amp; payment information</h2></div>
-  <div class="policy-grid">
-    <article><h3>Flight availability</h3><p>Flight prices and seat availability can change until a booking is ticketed. A request is not a reservation.</p></article>
-    <article><h3>Payment</h3><p>Customers should pay only the final amount shown on the confirmed itinerary/payment request. Payment does not authorize us to change the agreed itinerary without confirmation.</p></article>
-    <article><h3>Changes &amp; refunds</h3><p>Airline change, cancellation and refund rules depend on the fare purchased. Any service fees or applicable refund terms will be disclosed before payment.</p></article>
-    <article><h3>Customer information</h3><p>We use information submitted through this website to respond to travel requests and process bookings. Do not submit unnecessary sensitive information through the request form.</p></article>
-  </div>
-</section>
-
-<section id="contact" class="section contact"><p class="eyebrow">CONTACT</p><h2>Infinity Travel and Flights</h2><p>Questions before requesting a flight? Contact our team.</p>
-  <div class="contact-grid"><div><small>PHONE / WHATSAPP</small><strong>(220) 247-9118</strong></div><div><small>EMAIL</small><strong>jamesmitchell75b@gmail.com</strong></div></div>
+<section class="request" id="request">
+<div class="section-heading"><p class="eyebrow">FLIGHT ENQUIRY</p><h2>Request your flight</h2><p>Complete the form and our team will get back to you by email.</p></div>
+<form action="https://formsubmit.co/ocranbright17@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New flight request - Infinity Travel and Flights">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="">
+<div class="fields">
+<label>Full name<input name="Full name" autocomplete="name" required placeholder="Your full name"></label>
+<label>Email address<input type="email" name="Email" autocomplete="email" required placeholder="you@example.com"></label>
+<label>Departure city or airport<input name="Departure" required placeholder="e.g. Accra (ACC)"></label>
+<label>Destination city or airport<input name="Destination" required placeholder="e.g. London (LHR)"></label>
+<label>Departure date<input type="date" name="Departure date" required></label>
+<label>Return date (optional)<input type="date" name="Return date"></label>
+<label>Trip type<select name="Trip type"><option>Round trip</option><option>One way</option><option>Multi-city</option></select></label>
+<label>Passengers<select name="Passengers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></label>
+<label class="wide">Additional details (optional)<textarea name="Additional details" rows="4" placeholder="Preferred airline, baggage needs, flexibility, etc."></textarea></label>
+</div>
+<p class="privacy">By submitting, you agree that we may contact you about this flight request.</p>
+<button class="primary submit" type="submit">Send flight request</button>
+</form>
 </section>
 </main>
-<footer><span>© 2026 Infinity Travel and Flights</span><span>Requests are subject to availability and final confirmation.</span><span><a href="#policies">Booking information</a></span></footer>
-<script src="script.js"></script>
-</body>
-</html>
+<footer><strong>Infinity Travel and Flights</strong><span>Flight requests · Personal assistance · Email support</span><a href="mailto:ocranbright17@gmail.com">ocranbright17@gmail.com</a></footer>
+</body></html>
