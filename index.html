@@ -19,7 +19,11 @@
 <input type="hidden" name="_subject" value="New flight request - Infinity Travel and Flights">
 <input type="hidden" name="_captcha" value="true">
 <input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="">
+<input type="hidden" name="_next" id="formsubmit-next" value="">
+<script>
+  document.getElementById("formsubmit-next").value =
+    window.location.origin + "/thank-you.html";
+</script>
 <div class="fields">
 <label>Full name<input name="Full name" autocomplete="name" required placeholder="Your full name"></label>
 <label>Email address<input type="email" name="Email" autocomplete="email" required placeholder="you@example.com"></label>
